@@ -1,6 +1,6 @@
 import "./ListaOpciones.css"
 const ListaOpciones = (props)=>{
-
+    
     // metodo map -> arreglo.map((equipo,index)=> {
         //return <option></option>
     //})
@@ -15,7 +15,7 @@ const ListaOpciones = (props)=>{
     ]
 
     const manejarCambio = (e) => {
-        console.log("cambio",e.target.value)
+        console.log("cambio", e.target.value)
         props.actualizarEquipo(e.target.value)
     }
 

@@ -47,7 +47,7 @@ const Formulario = () =>{
             />
             <ListaOpciones
             valor={equipo}
-            actualizarValor={actualizarEquipo}
+            actualizarEquipo={actualizarEquipo}
             />
             <Boton>
                 Crear
