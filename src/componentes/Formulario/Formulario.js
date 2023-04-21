@@ -3,22 +3,24 @@ import "./Formulario.css"
 import CampoTexto from "../CampoTexto";
 import ListaOpciones from "../ListaOpciones";
 import Boton from "../Boton";
-const Formulario = () =>{
+const Formulario = (props) =>{
 
     const [nombre,actualizarNombre] = useState("");
     const [puesto,actualizarPuesto] = useState("");
     const [foto,actualizarFoto] = useState("");
     const[equipo,actualizarEquipo] = useState("");
+    
+    const {registrarColaborador}=props
 
     const manejarEnvio=(evento)=>{
         evento.preventDefault();
         let datosAEnviar={
-            nombre: nombre,
-            puesto: puesto,
-            foto: foto,
-            equipo: equipo
+            nombre,
+            puesto,
+            foto,
+            equipo
         }
-        console.log(datosAEnviar);
+      registrarColaborador(datosAEnviar)
     }
 
     return <section className="formulario">
@@ -48,6 +50,7 @@ const Formulario = () =>{
             <ListaOpciones
             valor={equipo}
             actualizarEquipo={actualizarEquipo}
+            equipos={props.equipos}
             />
             <Boton>
                 Crear
