@@ -4,10 +4,16 @@ import Header from './componentes/Header/Header';
 import Formulario from './componentes/Formulario/Formulario';
 import MiOrg from './componentes/MiOrg';
 import Equipo from './componentes/Equipo';
+import Footer from './componentes/Footer/Index';
 function App() {
 
   const [mostrarFormulario,actualizarMostrar] = useState(false);
-  const [colaboradores,actualizarColaboradores] = useState([]);
+  const [colaboradores,actualizarColaboradores] = useState([{
+    equipo:"Front End",
+    foto: "https://github.com/miguelsotelo01.png",
+    nombre:"Miguel A Sotelo",
+    puesto:"Programador"
+  }]);
 
   const cambiarMostrar = () => {
     actualizarMostrar(!mostrarFormulario)
@@ -66,11 +72,16 @@ const equipos = [
       />
       }
 
-      <MiOrg cambiarMostrar={cambiarMostrar}
-      />
+      <MiOrg cambiarMostrar={cambiarMostrar}/>
       {
-      equipos.map((equipo)=><Equipo datos={equipo} key={equipo.titulo}/>)
+      equipos.map((equipo)=><Equipo 
+      datos={equipo} 
+      key={equipo.titulo}
+      colaboradores={colaboradores.filter(colaborador => colaborador.equipo===equipo.titulo)}
+      />
+      )
       }
+      <Footer/>
     </div>
   );
 }
